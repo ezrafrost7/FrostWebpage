@@ -3,6 +3,16 @@ body {
     padding-bottom: 20px;
 }
 
+div.transbox {
+    opacity: 0.8;
+    background-color: #ffffff;
+}
+
+div.transbox text {
+    margin: 5%;
+    font-weight: normal;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

@@ -26,7 +26,7 @@ def contact(request):
         'app/contact.html',
         {
             'title':'Contact Me',
-            'message':'Please feel free to contact me below.',
+            'message':'I hope you have enjoyed your visit to my website.',
             'year':datetime.now().year,
         }
     )
