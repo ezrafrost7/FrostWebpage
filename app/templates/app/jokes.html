@@ -1,0 +1,24 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div>
+    <div class="jumbotron">
+        <h3>Wanna hear a joke?</h3>
+    </div>
+    <div>
+        <p>On this page I have implemented an API that will generate a new joke every time the user prompts it to.
+        This works by submitting a request from the API for a new joke once the button is pressed. Go ahead! Give it a shot!
+        They're pretty funny... or should I say punny.</p>
+        <a type="button" href="{% url 'tellJokes' %}" class="btn btn-default">Joke</a>
+    </div>
+    <div class="jumbotron" id="joke">
+        <p>
+            {{ joke }}
+        </p>
+    </div>
+</div>
+
+{% endblock %}
