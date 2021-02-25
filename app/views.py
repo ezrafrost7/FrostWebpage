@@ -96,3 +96,16 @@ def machine(request):
             'year':datetime.now().year,
         }
     )
+
+def resume(request):
+    """Renders the ML page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/resume.html',
+        {
+            'title':'Complete Resume',
+            'message':'This is a comprehensive collection of my experience, knowledge, and work history.',
+            'year':datetime.now().year,
+        }
+    )
