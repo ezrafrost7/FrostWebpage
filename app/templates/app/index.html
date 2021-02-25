@@ -3,9 +3,16 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1>Django</h1>
-    <p class="lead">Django is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://www.djangoproject.com/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="col-md-8">Welcome</h1>
+            <p class="lead col-md-8">I've created this website in order to help others get to know me and what I can do in a different way.</p>
+            <p class="lead col-md-8">Feel free to stay a while and enjoy everything that I have put into this website.
+            For questions and other inquiries, please feel free to contact me. You can find my contact info on the 
+            <a href="{% url 'contact' %}">Contact</a> page.</p>
+        </div>
+        <img src="../../static/app/img/profile.JPG" width="150" class="col-md-4"/>
+    </div>
 </div>
 
 <div class="row">
