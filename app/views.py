@@ -83,3 +83,16 @@ def tellJoke(request1):
             'joke':jokeString
         }
         )
+
+def machine(request):
+    """Renders the ML page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/machine.html',
+        {
+            'title':'Machine Learning',
+            'message':'Look at my Machine Learning',
+            'year':datetime.now().year,
+        }
+    )

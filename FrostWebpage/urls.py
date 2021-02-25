@@ -14,5 +14,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('api/', views.jokes, name='jokes'),
     path('api/joke', views.tellJoke, name='tellJokes'),
-    path('admin/', admin.site.urls),
+    path('machine/', views.machine, name='machine'),
+    path('admin/', admin.site.urls),   
 ]

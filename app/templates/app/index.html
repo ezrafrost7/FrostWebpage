@@ -17,23 +17,23 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>API Implementation</h2>
         <p>
-            Django gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            I've decided to dedicate a part of my website to show off one way that APIs can be used. Here, my website talks back and forth to another 
+            website to get some pretty simple information and then display it on my website.
         </p>
-        <p><a class="btn btn-default" href="https://djangobook.com/django-tutorials/">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="{% url 'jokes' %}">Check it out &raquo;</a></p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" hidden="hidden">
         <h2>Get more libraries</h2>
         <p>The Python Package Index is a repository of software for the Python programming language.</p>
         <p><a class="btn btn-default" href="https://pypi.org/">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Microsoft Azure</h2>
-        <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
+        <p>As a student, I have been able to use Microsoft's Azure Studio to create data pipelines and machine learning. If you would like to 
+        learn more about how I have implemented this service into my website, click here.</p>
+        <p><a class="btn btn-default" href="{% url 'machine' %}">Learn more &raquo;</a></p>
     </div>
 </div>
 
