@@ -38,8 +38,8 @@ def about(request):
         request,
         'app/about.html',
         {
-            'title':'About',
-            'message':'Your application description page.',
+            'title':'About me',
+            'message':'Now for the more personal',
             'year':datetime.now().year,
         }
     )
