@@ -97,6 +97,19 @@ def machine(request):
         }
     )
 
+def financial(request):
+    """Renders the ML page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/financial.html',
+        {
+            'title':'Financial Analytics',
+            'message':'TBD',
+            'year':datetime.now().year,
+        }
+    )
+
 def resume(request):
     """Renders the ML page."""
     assert isinstance(request, HttpRequest)

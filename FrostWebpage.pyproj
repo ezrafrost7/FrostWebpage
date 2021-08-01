@@ -63,6 +63,7 @@
     <Content Include="app\static\app\img\linkedin.png" />
     <Content Include="app\static\app\img\looking.jpg" />
     <Content Include="app\static\app\img\profile.JPG" />
+    <Content Include="app\templates\app\financial.html" />
     <Content Include="app\templates\app\jokes.html" />
     <Content Include="app\templates\app\machine.html" />
     <Content Include="app\templates\app\resume.html" />
