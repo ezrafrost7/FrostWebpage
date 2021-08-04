@@ -5,6 +5,7 @@ Definition of views.
 from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpRequest
+from .models import CompanyData
 
 def home(request):
     """Renders the home page."""
@@ -100,12 +101,13 @@ def machine(request):
 def financial(request):
     """Renders the ML page."""
     assert isinstance(request, HttpRequest)
+
     return render(
         request,
         'app/financial.html',
         {
             'title':'Financial Analytics',
-            'message':'TBD',
+            'message':'Check out the graphs below!',
             'year':datetime.now().year,
         }
     )

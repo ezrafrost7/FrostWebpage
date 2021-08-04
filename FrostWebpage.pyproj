@@ -32,7 +32,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\admin.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
+    <Compile Include="app\functions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\models.py" />
     <Compile Include="app\tests.py" />
     <Compile Include="app\views.py" />
@@ -43,6 +49,9 @@
     <Compile Include="FrostWebpage\settings.py" />
     <Compile Include="FrostWebpage\urls.py" />
     <Compile Include="FrostWebpage\wsgi.py" />
+    <Compile Include="RunModule.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
@@ -68,7 +77,6 @@
     <Content Include="app\templates\app\machine.html" />
     <Content Include="app\templates\app\resume.html" />
     <Content Include="requirements.txt" />
-    <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
     <Content Include="app\static\app\content\site.css" />
