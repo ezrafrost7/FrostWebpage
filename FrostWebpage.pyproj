@@ -35,6 +35,9 @@
     <Compile Include="app\admin.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="jobs\apps.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
     <Compile Include="app\functions.py">
       <SubType>Code</SubType>
@@ -44,14 +47,17 @@
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="jobs\jobs.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="jobs\updater.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="manage.py" />
     <Compile Include="FrostWebpage\__init__.py" />
     <Compile Include="FrostWebpage\settings.py" />
     <Compile Include="FrostWebpage\urls.py" />
     <Compile Include="FrostWebpage\wsgi.py" />
-    <Compile Include="RunModule.py">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
@@ -65,6 +71,7 @@
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="FrostWebpage\" />
+    <Folder Include="jobs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\static\app\img\facebook.png" />

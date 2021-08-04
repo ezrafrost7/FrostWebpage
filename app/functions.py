@@ -86,11 +86,15 @@ def runData(companyData, companyName, ticker, crypto=False) :
 def FinModule():
 
     #imports and needed variable
-
+    
     from .models import CompanyData
+
+    print("starting apis")
 
     comps = CompanyData()
     companies = [['tesla', 'tsla'], ['apple', 'aapl'], ['delta', 'dal']]
 
     for c in companies:
+        print("start")
         runData(comps, c[0], c[1])
+        print("end")
