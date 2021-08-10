@@ -1,4 +1,4 @@
-def runData(companyData, companyName, ticker, crypto=False) :
+def runData(companyName, ticker, crypto=False) :
     #dependencies to be imported
 
     import pandas as pd
@@ -9,19 +9,21 @@ def runData(companyData, companyName, ticker, crypto=False) :
     import datetime
     import sqlite3
     from app.models import CompanyData
+    from bs4 import BeautifulSoup
 
     #the api keys and other universal veriables/objects
 
     newsApiKey = '481ab4f4d4fd4861aa48dedcdc645900'
-    extractorApiKey = '54476f1dd1c4db5b381ea9e306cfd21d2ac65da3'
+    #extractorApiKey = '54476f1dd1c4db5b381ea9e306cfd21d2ac65da3'
     stockApiKey = 'c3o3oc2ad3ia07uekun0'
     sia = SentimentIntensityAnalyzer()
     today = datetime.date.today()
     companyName = companyName.upper()
     ticker = ticker.upper()
+    article = ""
 
     #creating new CompayData object
-    #Company = CompanyData()
+    Company = CompanyData()
 
     #creating the api request url for the newsapi
     #returns the list of news articles that we use for the url
@@ -35,14 +37,17 @@ def runData(companyData, companyName, ticker, crypto=False) :
 
     #extracting all of the article text and appending it into an array
 
-    content = []
     for r in response['articles']:
-        extractorReq = requests.get(f'https://extractorapi.com/api/v1/extractor/?apikey={extractorApiKey}&url={r["url"]}')
+        articleReq = requests.get(f'{r["url"]}')
         try:
-            content.append(json.loads(extractorReq.text))
+            soup = BeautifulSoup(articleReq.content, 'html.parser')
+            for tag in soup.body.find_all('p'):
+                article += tag.text
         except:
             pass
     
+    content = article.split('.')
+
     #running polarity scores of each of the articles
     #this might need to be modified, the polarity scores are more accurate with smaller texts
     #and the article texts can be pretty long
@@ -54,7 +59,7 @@ def runData(companyData, companyName, ticker, crypto=False) :
         row = []
         for col in dailyDf:
             try:
-                row.append(sia.polarity_scores(c['text'])[col])
+                row.append(sia.polarity_scores(c)[col])
             except:
                 row.append(None)
         dailyDf.loc[r] = row
@@ -67,20 +72,20 @@ def runData(companyData, companyName, ticker, crypto=False) :
 
     #create object and save the data to the object
         
-    companyData.Negative = dailyDf['neg'].mean()
-    companyData.Neutral = dailyDf['neu'].mean()
-    companyData.Positive = dailyDf['pos'].mean()
-    companyData.Compound = dailyDf['compound'].mean()
-    companyData.StockDate = today
-    companyData.CompanyName = companyName
-    companyData.Ticker = ticker
-    companyData.StockOpen = stockJson['o']
-    companyData.StockHigh = stockJson['h']
-    companyData.StockLow = stockJson['l']
-    companyData.StockClose = stockJson['pc']
+    Company.Negative = dailyDf['neg'].mean()
+    Company.Neutral = dailyDf['neu'].mean()
+    Company.Positive = dailyDf['pos'].mean()
+    Company.Compound = dailyDf['compound'].mean()
+    Company.StockDate = today
+    Company.CompanyName = companyName
+    Company.Ticker = ticker
+    Company.StockOpen = stockJson['o']
+    Company.StockHigh = stockJson['h']
+    Company.StockLow = stockJson['l']
+    Company.StockClose = stockJson['pc']
 
     #saving the company data to the DB
-    companyData.save()
+    Company.save()
 
 #this is the function that will be set to run everyday in order to grab data from the interwebs
 def FinModule():
@@ -92,9 +97,9 @@ def FinModule():
     print("starting apis")
 
     comps = CompanyData()
-    companies = [['tesla', 'tsla'], ['apple', 'aapl'], ['delta', 'dal']]
+    companies = [['tesla', 'tsla'], ['apple', 'aapl'], ['delta', 'dal'],['microsoft','msft'],['amc','amc']]
 
     for c in companies:
         print("start")
-        runData(comps, c[0], c[1])
+        runData(c[0], c[1])
         print("end")
