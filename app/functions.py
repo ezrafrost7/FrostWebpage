@@ -122,7 +122,7 @@ def Graphics(companyName):
     ln3 = ax2.plot(df['StockDate'], df['StockClose'], 'b--', label= 'Close Price')
     ax2.tick_params(axis='y', labelcolor='blue')
     ax2.set_ylabel('Stock Price ($)')
-    ns = ln1+ln2+ln3
+    lns = ln1+ln2+ln3
     labs = [l.get_label() for l in lns]
     ax2.legend(lns, labs)
 
