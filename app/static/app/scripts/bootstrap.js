@@ -13,6 +13,8 @@
  *
  * NUGET: END LICENSE TEXT */
 
+const { Tab } = require("bootstrap");
+
 /**
 * bootstrap.js v3.0.0 by @fat and @mdo
 * Copyright 2013 Twitter Inc.
@@ -2012,3 +2014,26 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   })
 
 }(window.jQuery);
+
+
+//this is for the tab functionality
+function openComp(evt, compName) {
+    //declare variables
+    var i, tabcontent, tablinks;
+
+    //get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    //get all elements with calss="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace("active", "");
+    }
+
+    //show current tab and add an "active" class to teh button that opened the tab
+    document.getElementById(compName).style.display = "block";
+    evt.currentTarget.className += " active";
+}

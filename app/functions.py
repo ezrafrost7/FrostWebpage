@@ -87,8 +87,53 @@ def runData(companyName, ticker, crypto=False) :
     #saving the company data to the DB
     Company.save()
 
+
+#this function will run to update the graphs that are displayed on the webpage
+def Graphics(companyName):
+
+    #imports
+    from .models import CompanyData
+    import pandas
+    from matplotlib import pyplot as plt
+    import seaborn as sns
+    import sqlite3
+
+    #make connection
+    conn = sqlite3.connect("db.sqlite3")
+
+    #make query into a pandas df
+    df = pandas.read_sql_query(f'SELECT * from app_companydata WHERE CompanyName == "{companyName.upper()}"', conn)
+
+    #always close connection
+    conn.close()
+
+    #start plotting using the dataframe that we have just saved
+    ax = plt.subplot()
+    ln1 = ax.plot(df['StockDate'], df['Compound'], 'ro', label='Sentiment Score')
+    ax.tick_params(axis='y', labelcolor='red')
+    ax.set_ylabel('Sentiment Score')
+    ax.set_xlabel('Date')
+    ax.set_title(f'{companyName.upper()}')
+    ax.axhline(color='gray', linestyle='--')
+
+    ax2 = ax.twinx()
+
+    ln2 = ax2.plot(df['StockDate'], df['StockOpen'], 'b', label= 'Open Price')
+    ln3 = ax2.plot(df['StockDate'], df['StockClose'], 'b--', label= 'Close Price')
+    ax2.tick_params(axis='y', labelcolor='blue')
+    ax2.set_ylabel('Stock Price ($)')
+    ns = ln1+ln2+ln3
+    labs = [l.get_label() for l in lns]
+    ax2.legend(lns, labs)
+
+    plt.savefig(f'.\\app\\static\\app\\img\\{companyName.upper()}.png')
+
+    #clear out the figure
+    plt.clf()
+
+
 #this is the function that will be set to run everyday in order to grab data from the interwebs
-def FinModule():
+def RunModules():
 
     #imports and needed variable
     
@@ -103,3 +148,6 @@ def FinModule():
         print("start")
         runData(c[0], c[1])
         print("end")
+
+    for c in companies:
+        Graphics(c[0])

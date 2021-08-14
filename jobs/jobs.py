@@ -3,4 +3,4 @@ from app import functions
 
 def schedule():
 
-    functions.FinModule()
+    functions.RunModules()

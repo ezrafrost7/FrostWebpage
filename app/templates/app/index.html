@@ -6,14 +6,18 @@
     <div class="row">
         <div class="col-md-8">
             <h2 class="col-md-8">Welcome</h2>
-            <p class="lead col-md-8">I've created this website in order to help others get to know me and what I can do in a different way. This
-            website was developed using the MTV format that is associated with a Python-Django app. I have also tried ot implement other nifty
-            programming skills that I have learned and enjoyed applying.</p>
-            <p class="lead col-md-8">Feel free to stay a while and enjoy everything that I have put into this website.
-            For questions and other inquiries, please feel free to contact me. You can find my contact info on the 
-            <a href="{% url 'contact' %}">Contact</a> page.</p>
+            <p class="lead col-md-8">
+                I've created this website in order to help others get to know me and what I can do in a different way. This
+                website was developed using the MTV format that is associated with a Python-Django app. I have also tried to implement other nifty
+                programming skills that I have learned and enjoyed applying.
+            </p>
+            <p class="lead col-md-8">
+                Feel free to stay a while and enjoy everything that I have put into this website.
+                For questions and other inquiries, please feel free to contact me. You can find my contact info on the
+                <a href="{% url 'contact' %}">Contact</a> page.
+            </p>
         </div>
-        <img src="../../static/app/img/profile.JPG" width="150" class="col-md-4"/>
+        <img src="../../static/app/img/profile.JPG" width="150" class="col-md-4" />
     </div>
 </div>
 
@@ -21,14 +25,15 @@
     <div class="col-md-4">
         <h2>API Implementation</h2>
         <p>
-            I've decided to dedicate a part of my website to show off one way that APIs can be used. Here, my website talks back and forth to another 
+            I've decided to dedicate a part of my website to show off one way that APIs can be used. Here, my website talks back and forth to another
             website to get some pretty simple information and then display it on my website.
         </p>
         <p><a class="btn btn-default" href="{% url 'jokes' %}">Check it out &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Stocks Analytics</h2>
-        <p>Because I love collecting and working with data, I have created my own project that incorperates many
+        <p>
+            Because I love collecting and working with data, I have created my own project that incorperates many
             different aspects of data analytics
             data collection. Click on the button learn more about this exciting project!
         </p>
@@ -36,8 +41,10 @@
     </div>
     <div class="col-md-4" hidden="hidden">
         <h2>Microsoft Azure</h2>
-        <p>As a student, I have been able to use Microsoft's Azure Studio to create data pipelines and machine learning. If you would like to 
-        learn more about how I have implemented this service into my website, click here.</p>
+        <p>
+            As a student, I have been able to use Microsoft's Azure Studio to create data pipelines and machine learning. If you would like to
+            learn more about how I have implemented this service into my website, click here.
+        </p>
         <p><a class="btn btn-default" href="{% url 'machine' %}">Learn more &raquo;</a></p>
     </div>
 </div>

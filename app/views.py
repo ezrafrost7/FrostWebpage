@@ -107,7 +107,7 @@ def financial(request):
         'app/financial.html',
         {
             'title':'Financial Analytics',
-            'message':'Check out the graphs below!',
+            'message':'Look how the news affects stock prices',
             'year':datetime.now().year,
         }
     )

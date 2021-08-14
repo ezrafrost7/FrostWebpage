@@ -5,6 +5,43 @@
 <h2>{{ title }}</h2>
 <h3>{{ message }}</h3>
 
-<p>Under construction</p>
+<p>The basic purpose of this module is to see the effect that the way news is presented has upon the subject matter. 
+    In this study I have decided to follow several companies and compare the tone of news articles about them to their 
+    change in stock prices. In order to analyze the tone, or sentiment, that news articles have towards a company, I have 
+    used APIs and text analytics to create a sentiment score for these companies daily. That score ranges from 1 to -1. A 
+    positive number indicates a positive sentiment and a negative number indicates a negative sentiment. 
+    This is then graphed side-by-side with the opening and closing stock prices for that company on the same day.</p>
+<p>The blue lines represent the stock prices over time. The solid line is the opening sales price, while the dashed line 
+    is the closing sales price. The red dots are the setiment scores for each day.</p>
+
+<!--the tab links for each of the companies-->
+<div class="tab">
+    <button class="tablinks" onclick="openComp(event,'Tesla')">Tesla</button>
+    <button class="tablinks" onclick="openComp(event,'Apple')">Apple</button>
+    <button class="tablinks" onclick="openComp(event,'Delta')">Delta</button>
+    <button class="tablinks" onclick="openComp(event,'Microsoft')">Microsoft</button>
+    <button class="tablinks" onclick="openComp(event,'AMC Entertainment')">AMC Entertainment</button>
+</div>
+
+<!--the tab content-->
+<div id="Tesla" class="tabcontent">
+    <img src="../../static/app/img/TESLA.png" />
+</div>
+
+<div id="Apple" class="tabcontent">
+    <img src="../../static/app/img/APPLE.png" />
+</div>
+
+<div id="Delta" class="tabcontent">
+    <img src="../../static/app/img/DELTA.png" />
+</div>
+
+<div id="Microsoft" class="tabcontent">
+    <img src="../../static/app/img/MICROSOFT.png" />
+</div>
+
+<div id="AMC Entertainment" class="tabcontent">
+    <img src="../../static/app/img/AMC.png" />
+</div>
 
 {% endblock %}
